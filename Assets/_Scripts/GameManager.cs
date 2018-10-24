@@ -5,41 +5,41 @@ using ShermanLibr;
 
 public class GameManager : MonoBehaviour {
 
-    public static GameManager instance;
+    public static GameManager instance;//синглтон
 
-    public bool CompliteLevel;
-    public int Level;
-    public GameObject player;
-    public Animation[] rainSpike;
-    private const string GameID = "2753079";
+    public bool CompliteLevel;//пройден ли уровень
+    public int Level;//номер уровня
+    public GameObject player;//ссылка на игрока
+    public Animation[] rainSpike;//анимация "дождя"
+    private const string GameID = "2753079";//id игры в юнити ads
 
     private void Awake()
     {
         //PlayerPrefs.DeleteAll();
-        Platform.ReturnPlatform();
-        AD.Inicial(GameID);
-        instance = this;
-        
+        Platform.ReturnPlatform();//узнаем платформу
+        AD.Inicial(GameID);//иницализируем игру для рекламы
+        instance = this;//ссылка на себя
+
     }
 
     void Start () {
-        SaveResult.LoadRes();
-        StartCoroutine(playAnim());
+        SaveResult.LoadRes();//загружаем результаты
+        StartCoroutine(playAnim());//запускаем дождик
     }
 
-    public void Restart()
+    public void Restart()//рестарт
     {
         player.transform.position = PlayerController.instance.spawnCord;
     }
 	
-    private IEnumerator playAnim()
+    private IEnumerator playAnim()//анимация дождика
     {
         while (true)
         { 
             for (int i=0; i < rainSpike.Length;i++)
             {
-                rainSpike[i].Play();                
-                yield return new WaitForSeconds(0.15f);
+                rainSpike[i].Play();//запуск анимации                
+                yield return new WaitForSeconds(0.15f);//ждем 0.15сек
 
             }
             yield return new WaitForSeconds(0.7f);

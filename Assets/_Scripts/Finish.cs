@@ -5,20 +5,20 @@ using UnityEngine;
 public class Finish : MonoBehaviour {
 
     public PlayerController Pc;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float sher;
+    private void OnTriggerEnter2D(Collider2D collision)//если заходишь в тригер
     {
-        Pc = FindObjectOfType<PlayerController>();
-        if(collision.tag=="Player")
+        Pc = FindObjectOfType<PlayerController>();//находим класс PlayerConoller в сцене
+        if (collision.tag=="Player")//если тэг в объекта который зашел в триггер Player
         {
-            if(!GameManager.instance.CompliteLevel)
+            if(!GameManager.instance.CompliteLevel)//если уровень не пройден
             { 
-                Timer.time.StopwatchStop();
-                SaveResult.SaveRes();
+                Timer.time.StopwatchStop();//остановка секундомера
+                SaveResult.SaveRes();//сохран результатов
             }
-            UIManager.instance.Fin();
-            Pc.enabled = false;
-            
+            UIManager.instance.Fin();//финал
+            Pc.enabled = false;//выключаем контроллер
+
         }
         
         

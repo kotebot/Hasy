@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PivotLever : MonoBehaviour {
 
+
     public bool gravity;
-    private bool Move = false;
+    private bool Move = false;//работает ли анимация(изменяем в ивентах в анимации)
     private Animation anim;
-    public bool Open=false;
+    public bool Open=false;//открыт ли
 
     private void Start()
     {
         anim=GetComponent<Animation>();
     }
 
-    public void Rotate()
+    public void Rotate()//поворот
     {
         if (!Move && !Open)
         {

@@ -10,12 +10,12 @@ public class UIManager : MonoBehaviour {
 
     public static UIManager instance;
 
-    public TextMeshProUGUI Stopwatch;
-    public TextMeshProUGUI CountLevel;
-    public TextMeshProUGUI FinishText;
-    public FixedJoystick joystick;
-    public GameObject[] AndroidUI;
-    public string[] WinString;
+    public TextMeshProUGUI Stopwatch;//ссылка  на протекст для секундомера
+    public TextMeshProUGUI CountLevel;//счетчик уровня
+    public TextMeshProUGUI FinishText;//финал текст
+    public FixedJoystick joystick;//джойстик
+    public GameObject[] AndroidUI;//ui для анлроид
+    public string[] WinString;//текст для победы
 
     private void Awake()
     {
@@ -30,23 +30,23 @@ public class UIManager : MonoBehaviour {
 
     private void Start()
     {
-        CountLevel.text = GameManager.instance.Level.ToString();
-        
+        CountLevel.text = GameManager.instance.Level.ToString();//выводим номер лвл на экран
+
 
     }
 
     void Update () {
-        if (!GameManager.instance.CompliteLevel)
+        if (!GameManager.instance.CompliteLevel)//если уровень не пройден запускаем таймер
             Stopwatch.text = Timer.time.ToString();
 	}
     
-    public void Fin()
+    public void Fin()//финалочка
     {
         FinishText.gameObject.SetActive(true);
         FinishText.text = WinString[Random.Range(0, WinString.Length)];
     }
 
-    public void NextLevel()
+    public void NextLevel()//след уровень
     {
         try
         {
@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    public void PrewLevel()
+    public void PrewLevel()//предыдущий лвл
     {
         try
         {

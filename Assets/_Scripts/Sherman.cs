@@ -5,6 +5,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.Advertisements;
 
+/*
+ * ПОКА НЕ ДОПИШУ НЕВНИКАЙТЕ!!
+ */
 namespace ShermanLibr
 { 
     public class Saver:MonoBehaviour

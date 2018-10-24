@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
 
-    public static AudioManager instance;
+    
+    public static AudioManager instance;//ссылка на себя
 
-    public AudioSource[] background;
+    public AudioSource[] background;//массив фоновой мyзыки
 
     public AudioSource jump;
 
     private void Start()
     {
-        instance = this;
-        background[Random.Range(0, 2)].Play();
+        instance = this;//ссылка не себя
+        background[Random.Range(0, 2)].Play();//запуск рандомной фоновой песни
     }
 
 }

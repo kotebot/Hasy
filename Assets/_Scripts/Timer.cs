@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour {
 
     public void Start()
     {
-        time = new ShermanLibr.Time();
+        time = new ShermanLibr.Time();//по факту изаю библиотеку
     }
 
     public void Update()

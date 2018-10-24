@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TransformObject:MonoBehaviour {
 
-    public bool Open;
+    public bool Open;//открыт ли он
     public bool activeJump;
 
     public void IsOpen()
@@ -16,23 +16,23 @@ public class TransformObject:MonoBehaviour {
         Open = false;
     }
 
-    public void Transparence()
+    public void Transparence()//невидимость
     {
         //GetComponent<BoxCollider2D>().enabled = false;
         gameObject.SetActive(false);
     }
 
-    public void UnTransparence()
+    public void UnTransparence()//видимость
     {
         GetComponent<BoxCollider2D>().enabled = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)//мега прыжок
     {
         StartCoroutine(MegaJump(collision));
     }
 
-    public IEnumerator MegaJump(Collision2D collision)
+    public IEnumerator MegaJump(Collision2D collision)//реализация мега прыжка
     {
         if(activeJump)
         {
